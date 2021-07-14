@@ -3,7 +3,10 @@
 
 ## Sobre o Projeto
 
-### Desenvolvido durante a Imersão React da [Alura]("https://www.alura.com.br/")
+Desenvolvido durante a Imersão React da [Alura](https://www.alura.com.br/).
+
+## Live Preview
+[Clique aqui](https://alurakut-sigma-eight.vercel.app/) e relembre os anos dourados da internet brasileira!
 
 ## Tecnologias utilizadas
 
@@ -28,6 +31,10 @@ git clone https://github.com/diogo-alves/alurakut.git
 ```
 # Acesse a pasta do projeto
 cd alurakut
+```
+```
+# Instale as dependências
+npm install
 ```
 ```
 # Execute o projeto
