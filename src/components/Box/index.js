@@ -13,10 +13,14 @@ const Box = styled.div`
     text-decoration: none;
     font-weight: 800;
   }
+  .luckDay {
+    font-size: 12px;
+    color: #999999;
+  }
   .title {
     font-size: 30px;
     font-weight: 400;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
   .subTitle {
     font-size: 18px;
@@ -29,6 +33,14 @@ const Box = styled.div`
     font-weight: 700;
     color: #333333;
     margin-bottom: 20px;
+  }
+  .userInfo {
+    color: #999999;
+    font-size: 12px;
+    line-height: 134.53%;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    word-spacing: 100vw;
   }
   hr {
     margin-top: 12px;
