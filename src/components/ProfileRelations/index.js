@@ -1,7 +1,34 @@
 import styled from 'styled-components'; 
 import Box from '../Box';
 
-export const ProfileRelationsBoxWrapper = styled(Box)`
+export function ProfileRelationsBox({ title, items }) {
+  const MAX_NUM_VISIBLE_ITEMS = 6;
+  return (
+    <ProfileRelationsBox.Wrapper>
+      <h2 className="smallTitle">
+        {title} <a href="#" className="boxLink">({items.length})</a>
+      </h2>
+      <ul>
+        {items.slice(0, MAX_NUM_VISIBLE_ITEMS).map((item, index) => {
+          return (
+            <li key={`${item.title ?? item}__${index}`}>
+              <a href={item.url ?? `https://github.com/${item}`}>
+                <img src={item.image ?? `https://github.com/${item}.png`} style={{ borderRadius: '8px' }} />
+                <span>{item.title ?? item}</span>
+              </a>
+            </li>
+          )
+        })}
+      </ul>
+      <div>
+        <hr />
+        <a href="#" className="boxLink">Ver todas</a>
+      </div>
+    </ProfileRelationsBox.Wrapper>
+  )
+}
+
+ProfileRelationsBox.Wrapper = styled(Box)`
   ul {
     display: grid;
     grid-gap: 8px;
