@@ -9,12 +9,12 @@ export function ProfileRelationsBox({ title, items }) {
         {title} <a href="#" className="boxLink">({items.length})</a>
       </h2>
       <ul>
-        {items.slice(0, MAX_NUM_VISIBLE_ITEMS).map((item, index) => {
+        {items.slice(0, MAX_NUM_VISIBLE_ITEMS).map(item => {
           return (
-            <li key={`${item.title ?? item}__${index}`}>
-              <a href={item.url ?? `https://github.com/${item}`}>
-                <img src={item.image ?? `https://github.com/${item}.png`} style={{ borderRadius: '8px' }} />
-                <span>{item.title ?? item}</span>
+            <li key={item.id}>
+              <a href={item.url}>
+                <img src={item.image_url} style={{ borderRadius: '8px' }} />
+                <span>{item.name}</span>
               </a>
             </li>
           )

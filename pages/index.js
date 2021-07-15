@@ -3,6 +3,8 @@ import MainGrid from '../src/components/MainGrid';
 import Box from '../src/components/Box';
 import { ProfileRelationsBox } from '../src/components/ProfileRelations';
 import { AlurakutMenu, AlurakutProfileSidebarMenuDefault, OrkutNostalgicIconSet } from '../src/lib/AlurakutCommons';
+import {githubUserAdapter, githubFollowerAdapter} from '../src/adapters/github'
+import {communityAdapter} from '../src/adapters/community'
 
 function ProfileSideBar(props) {
   return (
@@ -29,20 +31,23 @@ export default function Home() {
     country: 'Brasil'
   };
   const [communities, setCommunities] = React.useState([
-    {
+    { 
+      id: '1',
       title: 'Eu Odeio Acordar Cedo',
       image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg',
-      url: "https://www.orkut.br.com/MainCommunity?cmm=10000",
+      url: 'https://www.orkut.br.com/MainCommunity?cmm=10000',
     },
-    {
+    { 
+      id: '2',
       title: 'Queria Sorvete, Mas Era Feijão',
       image: 'https://i.imgur.com/7g9osTQ.jpg',
-      url: "https://www.orkut.br.com/MainCommunity?cmm=11200",
+      url: 'https://www.orkut.br.com/MainCommunity?cmm=11200',
     },
-    {
+    { 
+      id: '3',
       title: 'Tocava a Campainha e Corria',
       image: 'https://i.imgur.com/Te6JlP3.jpg',
-      url: "https://www.orkut.br.com/MainCommunity?cmm=27296",
+      url: 'https://www.orkut.br.com/MainCommunity?cmm=27296',
     },
   ]);
   const aluraPeople = [
@@ -54,6 +59,16 @@ export default function Home() {
   	 'felipefialho',
      'guilhermesilveira',
   ];
+  const [followers, setFollowers] = React.useState([]);
+  React.useEffect(() => {
+    fetch('https://api.github.com/users/diogo-alves/followers')
+    .then(response => {
+        if(response.ok) return response.json()
+        throw new Error('Aconteceu alguma coisa...')
+    })
+    .then(data => setFollowers(data))
+    .catch(error => console.log(error))
+  }, [])
   return (
     <>
       <AlurakutMenu githubUser={githubUser} />
@@ -73,6 +88,7 @@ export default function Home() {
               e.preventDefault();
               const formData = new FormData(e.target);
               const community = {
+                id: Math.random(),
                 title: formData.get('title'),
                 image: formData.get('image'),
                 url: '#',
@@ -96,8 +112,9 @@ export default function Home() {
           </Box>
         </div>
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
-          <ProfileRelationsBox title="Comunidades" items={communities} />
-          <ProfileRelationsBox title="Pessoas da Comunidade" items={aluraPeople} />
+          <ProfileRelationsBox title="Pessoas que me seguem" items={followers.map(follower => githubFollowerAdapter(follower))} />
+          <ProfileRelationsBox title="Pessoas da Comunidade" items={aluraPeople.map(member => githubUserAdapter(member))} />
+          <ProfileRelationsBox title="Comunidades" items={communities.map(community => communityAdapter(community))} />
         </div>
       </MainGrid>
     </>
