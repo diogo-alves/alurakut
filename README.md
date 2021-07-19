@@ -1,8 +1,12 @@
 ![](https://alurakut.vercel.app/logo.svg)
 # Vamos reviver o Orkut?
 
----
+![](https://img.shields.io/badge/License-MIT-blueviolet)
+![](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![](https://img.shields.io/badge/NEXT.js-000000?style=flat&logo=nextdotjs&logoColor=white)
 
+
+---
 ## Tabela de Conteúdos
 * [Sobre o Projeto](#sobre-o-projeto)
 * [Live Preview](#live-preview)
@@ -16,15 +20,19 @@
 * [Como executar o projeto](#como-executar-o-projeto)
     * [Pré-requisitos](#pré-requisitos)
     * [Executando o projeto](#executando-o-projeto)
-* [Autor](#autor)
+* [Licença](#licença)
+
+
 ---
 ## Sobre o Projeto
 
 Desenvolvido durante a [Imersão React da Alura](https://www.alura.com.br/imersao-react).
 
+
 ---
 ## Live Preview
 [Clique aqui](https://alurakut-diogo-alves.vercel.app/) e relembre os anos dourados da internet brasileira!
+
 
 ---
 ## Conteúdo abordado na imersão
@@ -62,7 +70,8 @@ Desenvolvido durante a [Imersão React da Alura](https://www.alura.com.br/imersa
     - Como funciona o redirecionamento de páginas;
     - Formulários com gerenciamento de estados do input;
     - Salvando cookies com o padrão JWT para autenticar o usuário da aplicação;
-    - Como decodificar o token gerado para mostrar a Home apenas para usuários autenticados.
+    - Como decodificar o token gerado para mostrar a Home apenas para usuários autenticados;
+
 
 ---
 ## Tecnologias utilizadas
@@ -70,6 +79,7 @@ Desenvolvido durante a [Imersão React da Alura](https://www.alura.com.br/imersa
 - **[ReactJS](https://reactjs.org/)**
 - **[styled-components](https://styled-components.com)**
 - **[NextJS](https://nextjs.org/)**
+
 
 ---
 ##  Como executar o projeto
@@ -95,6 +105,7 @@ $ npm install
 $ npm run dev
 ```
 
+
 ---
-## Autor
-Feito com ❤️ por Diogo Alves
+## Licença
+Este projeto está sob a licença [MIT](./LICENSE) | Feito com ❤️ por Diogo Alves
